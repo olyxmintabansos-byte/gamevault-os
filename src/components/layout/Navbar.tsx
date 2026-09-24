@@ -7,6 +7,7 @@ import {
   Sparkles, 
   Wheat, 
   Coins, 
+  ArrowLeftRight,
   Bot, 
   Dice5,
   Volume2,
@@ -15,8 +16,8 @@ import {
 import { StorageEngine } from '@/lib/storage';
 
 interface NavbarProps {
-  activeTab: 'growtopia' | 'roblox' | 'discord' | 'gacha';
-  onTabChange: (tab: 'growtopia' | 'roblox' | 'discord' | 'gacha') => void;
+  activeTab: 'growtopia' | 'roblox' | 'arbitrage' | 'discord' | 'gacha';
+  onTabChange: (tab: 'growtopia' | 'roblox' | 'arbitrage' | 'discord' | 'gacha') => void;
   onReset: () => void;
 }
 
@@ -40,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onReset 
       {/* Top Banner Ticker */}
       <div className="bg-gradient-to-r from-emerald-950 via-slate-900 to-indigo-950 px-4 py-1.5 text-center text-[11px] font-medium text-slate-300 border-b border-slate-800/80 flex items-center justify-center gap-2">
         <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-        <span>GameVault OS v1.0 — Universal Gaming Economy Suite & Discord Webhook Dispatcher</span>
+        <span>GameVault OS v1.2 — Universal Gaming Economy Suite & Discord Webhook Dispatcher</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -63,10 +64,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onReset 
         </div>
 
         {/* Center Tabs */}
-        <nav className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900/80 border border-slate-800">
+        <nav className="hidden lg:flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900/80 border border-slate-800">
           <button
             onClick={() => onTabChange('growtopia')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
               activeTab === 'growtopia'
                 ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-950/40'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
@@ -78,9 +79,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onReset 
 
           <button
             onClick={() => onTabChange('roblox')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
               activeTab === 'roblox'
-                ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-950/40'
+                ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-950/40'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
@@ -89,27 +90,39 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onReset 
           </button>
 
           <button
+            onClick={() => onTabChange('arbitrage')}
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+              activeTab === 'arbitrage'
+                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-950/40'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
+          >
+            <ArrowLeftRight className="h-3.5 w-3.5" />
+            <span>Market Arbitrage</span>
+          </button>
+
+          <button
             onClick={() => onTabChange('discord')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
               activeTab === 'discord'
-                ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-950/40'
+                ? 'bg-indigo-500 text-white shadow-md shadow-indigo-950/40'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
             <Bot className="h-3.5 w-3.5" />
-            <span>Discord Webhooks</span>
+            <span>Discord Bot</span>
           </button>
 
           <button
             onClick={() => onTabChange('gacha')}
-            className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition ${
               activeTab === 'gacha'
-                ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-950/40'
+                ? 'bg-purple-500 text-white shadow-md shadow-purple-950/40'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
             <Dice5 className="h-3.5 w-3.5" />
-            <span>Loot Box Gacha</span>
+            <span>Loot Gacha</span>
           </button>
         </nav>
 

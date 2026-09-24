@@ -11,10 +11,10 @@ export interface GtSeed {
   seedDropRate: number; // avg seeds returned per tree
   category: GtCategory;
   spliceRecipe: {
-    seedA: string; // seed name or id
+    seedA: string;
     seedB: string;
   } | null;
-  baseColor: string; // Tailwind color class or hex
+  baseColor: string;
   description: string;
 }
 
@@ -44,5 +44,30 @@ export interface VaultSettings {
   soundEnabled: boolean;
   growtopiaDiscordWebhook?: string;
   robloxDevExRateUsd: number; // $0.0035 per Robux standard
-  usdToIdrRate: number; // e.g. 16200 IDR per USD
+  usdToIdrRate: number; // e.g. 16250 IDR per USD
+}
+
+export type RobloxAssetType = 'CLASSIC_CLOTHING' | 'UGC_ACCESSORY' | 'GAMEPASS' | 'DEV_PRODUCT';
+
+export interface ArbitrageItem {
+  id: string;
+  name: string;
+  game: 'GROWTOPIA' | 'ROBLOX' | 'STEAM';
+  buyLocation: string; // e.g. "World BUYGEMS / Trade Hangout"
+  buyPrice: number;
+  sellLocation: string; // e.g. "World SELLGEMS / Rolimon's"
+  sellPrice: number;
+  taxRatePercent: number; // 0% or 30%
+  unitName: string; // "WL", "DL", "Robux"
+  trend: 'BULLISH' | 'BEARISH' | 'STABLE';
+  weeklyChangePercent: number;
+  notes?: string;
+}
+
+export interface DevExGoal {
+  id: string;
+  title: string;
+  targetRobux: number;
+  currentRobux: number;
+  createdAt: string;
 }
