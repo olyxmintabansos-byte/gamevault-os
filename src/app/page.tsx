@@ -5,8 +5,8 @@ import { Navbar } from '@/components/layout/Navbar';
 import { GrowtopiaMatrixView } from '@/components/growtopia/GrowtopiaMatrixView';
 import { RobloxSuiteView } from '@/components/roblox/RobloxSuiteView';
 import { TradeArbitrageView } from '@/components/arbitrage/TradeArbitrageView';
-import { DiscordTeaserView } from '@/components/teasers/DiscordTeaserView';
-import { GachaTeaserView } from '@/components/teasers/GachaTeaserView';
+import { DiscordWebhookView } from '@/components/discord/DiscordWebhookView';
+import { GachaSimulatorView } from '@/components/gacha/GachaSimulatorView';
 import { StorageEngine } from '@/lib/storage';
 import { HarvestBatch } from '@/types/gamevault';
 import { Wheat, Coins, ArrowLeftRight, Bot, Dice5 } from 'lucide-react';
@@ -73,7 +73,7 @@ export default function HomePage() {
             activeTab === 'gacha' ? 'bg-purple-500 text-white' : 'text-slate-400 bg-slate-950'
           }`}
         >
-          Gacha
+          Loot Gacha
         </button>
       </div>
 
@@ -83,12 +83,12 @@ export default function HomePage() {
         )}
         {activeTab === 'roblox' && <RobloxSuiteView />}
         {activeTab === 'arbitrage' && <TradeArbitrageView />}
-        {activeTab === 'discord' && <DiscordTeaserView />}
-        {activeTab === 'gacha' && <GachaTeaserView />}
+        {activeTab === 'discord' && <DiscordWebhookView />}
+        {activeTab === 'gacha' && <GachaSimulatorView />}
       </main>
 
       <footer className="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs text-slate-500">
-        <p className="font-bold text-slate-400">GAMEVAULT & METAFORGE OS v1.2 — SPRINT 2 COMPLETE</p>
+        <p className="font-bold text-slate-400">GAMEVAULT & METAFORGE OS v2.0 — ALL MODULES ACTIVE</p>
         <p className="mt-1">Universal Gaming Economy Suite & Discord Webhook Bot Studio.</p>
       </footer>
     </div>

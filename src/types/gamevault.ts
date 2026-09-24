@@ -53,12 +53,12 @@ export interface ArbitrageItem {
   id: string;
   name: string;
   game: 'GROWTOPIA' | 'ROBLOX' | 'STEAM';
-  buyLocation: string; // e.g. "World BUYGEMS / Trade Hangout"
+  buyLocation: string;
   buyPrice: number;
-  sellLocation: string; // e.g. "World SELLGEMS / Rolimon's"
+  sellLocation: string;
   sellPrice: number;
-  taxRatePercent: number; // 0% or 30%
-  unitName: string; // "WL", "DL", "Robux"
+  taxRatePercent: number;
+  unitName: string;
   trend: 'BULLISH' | 'BEARISH' | 'STABLE';
   weeklyChangePercent: number;
   notes?: string;
@@ -70,4 +70,21 @@ export interface DevExGoal {
   targetRobux: number;
   currentRobux: number;
   createdAt: string;
+}
+
+export interface WebhookHistoryEntry {
+  id: string;
+  title: string;
+  status: 'SUCCESS' | 'FAILED';
+  sentAt: string;
+  botName: string;
+  details: string;
+}
+
+export interface GachaItem {
+  id: string;
+  name: string;
+  tier: 'COMMON' | 'RARE' | 'EPIC' | 'LEGENDARY';
+  valueWl: number;
+  description: string;
 }
